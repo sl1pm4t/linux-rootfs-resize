@@ -6,7 +6,7 @@
 
 # Change current working directory to script directory
 SOURCE="${BASH_SOURCE[0]}"
-# resolve $SOURCE until the file is no longer a symlink 
+# resolve $SOURCE until the file is no longer a symlink
 while [ -h "$SOURCE" ]; do
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   SOURCE="$(readlink "$SOURCE")"
@@ -112,6 +112,8 @@ grub-mod() {
       elif [ -f /usr/sbin/grub-mkconfig ]; then
         grub-mkconfig -o ${grub_config}
       fi
+      # set default
+      grubby --set-default ${kernelmod}
     ;;
   esac
 }
@@ -183,7 +185,7 @@ distro=""
     grub_config="/boot/grub/grub.conf"
     grub="grub1"
   fi
-  
+
 # Debian derivate
 [ -f /etc/issue ] &&
   if [[ "$(cat /etc/issue)" == *Debian\ GNU\/Linux\ 8* ]]; then

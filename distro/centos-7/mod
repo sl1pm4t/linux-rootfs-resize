@@ -7,6 +7,5 @@ growroot()
   growpart -v /dev/${root_dev} ${part_num}
   partprobe -s /dev/${root_dev}
   e2fsck -p -f /dev/${root_dev}${part_num}
-  resize2fs -p /dev/${root_dev}${part_num}
+  xfs_growfs /
 }
-
