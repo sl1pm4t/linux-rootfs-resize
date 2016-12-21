@@ -5,8 +5,8 @@ Supported Linux distributions:
 CentOS 6, CentOS 7, Debian 6, Debian 7, Debian 8.
 
 This tool creates new initrd (initramfs) image with ability to resize root filesystem 
-over available space. Tipically you need this when you provision your virtual machine on 
-OpenStack cloud for the first time (your image becomes flavor aware)
+over available space. Typically you need this when you provision your virtual machine on 
+a cloud provider for the first time (your image becomes flavor aware)
 
 For now, filesystem resize is limited to ext2, ext3 and ext4 (resize2fs) including LVM volumes.
 
